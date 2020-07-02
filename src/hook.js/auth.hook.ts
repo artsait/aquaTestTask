@@ -7,13 +7,6 @@ export const useAuth = () => {
 
     let signIn = useCallback(({login, password, remember}) => {
 
-        //так можно посмотреть работу приложения локально
-        if(login === '54' && password === '654321'){
-            setAuth(true)
-            setToken('temptoken', remember);
-            return;
-        }
-
         API.login({login, password}).then((response: any) => {
             if(response.data.success){
                 setToken(response.data.auth_key, remember);

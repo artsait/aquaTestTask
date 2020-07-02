@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import {useMess} from "../hook.js/mess.hook";
-import {initialData} from "../initialData";
 import {useAuth} from "../hook.js/auth.hook";
 
 export const Messages = () => {
@@ -13,21 +12,17 @@ export const Messages = () => {
         getMessage()
     }, []);
 
-    if(messages === []){
-        data = initialData;
-    }
-
     return (
         <div>
-            <a style={{cursor: "pointer"}} onClick={()=>logout()}>Выход</a>
+            <a style={{cursor: "pointer"}} onClick={() => logout()}>Выход</a>
             {data.map((m: any) => {
-                return (
-                <div key={m.id}>
-                    <p>{m.user_id}</p>
-                    <p>{m.message}</p>
-                </div>
-            )}
-
+                    return (
+                        <div key={m.id}>
+                            <p>{m.user_id}</p>
+                            <p>{m.message}</p>
+                        </div>
+                    )
+                }
             )}
         </div>
     )
