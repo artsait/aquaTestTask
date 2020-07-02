@@ -1,5 +1,5 @@
 import axios from "axios";
-import storageService from "../LocalStorageService";
+import storageService from "../storageService";
 
 const istance = axios.create();
 

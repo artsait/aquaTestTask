@@ -1,22 +1,18 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import './App.css';
-import {Login} from "./components/Login";
 import {useAuth} from "./hook.js/auth.hook";
-import {Messages} from "./components/Messages";
+import {useRoutes} from "./routes";
 
 const App = () => {
-    const {auth} = useAuth();
-  return (
-      <BrowserRouter>
-          {!auth && <Switch>
-          <Route exact path={"/"} component={Login}/>
-        </Switch>}
-          {auth && <Switch>
-              <Route exact path={"/"} component={Messages}/>
-          </Switch>}
-      </BrowserRouter>
-  );
+    let {auth} = useAuth();
+    const routes = useRoutes(auth)
+
+    return (
+        <BrowserRouter>
+            {routes}
+        </BrowserRouter>
+    );
 }
 
 export default App;

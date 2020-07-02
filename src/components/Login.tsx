@@ -1,7 +1,6 @@
 import React from "react";
 import {Field, Form} from "react-final-form";
 import TextInput from "./TextInput";
-import CheckboxInput from "./CheckboxInput";
 import {useAuth} from "../hook.js/auth.hook";
 
 interface Values {
